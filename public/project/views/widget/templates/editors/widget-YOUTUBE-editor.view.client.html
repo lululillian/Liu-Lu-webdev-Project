@@ -1,0 +1,17 @@
+<h1>YOUTUBE Editor</h1>
+<label>Name</label>
+<input ng-model="model.widget.name" class="form-control"/>
+
+<label>Text</label>
+<input ng-model="model.widget.text" class="form-control"/>
+
+<label>Width</label>
+<input ng-model="model.widget.width" class="form-control"/>
+
+
+<label>URL</label>
+<input ng-model="model.widget.url" class="form-control margin-bottom-18px"/>
+
+<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/"
+   ng-click = "model.delete(model.widgetId)"
+   class="btn btn-danger btn-block">Delete Youtube</a>

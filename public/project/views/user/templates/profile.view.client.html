@@ -1,0 +1,139 @@
+<!--
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+            <div class="navbar-text pull-right"  >
+                <span class="glyphicon glyphicon-ok" ng-click="model.updateUser(model.user);"></span>
+            </div>
+        <div class="navbar-header">
+            <a class="navbar-brand">Profile</a>
+        </div>
+    </div>
+</nav>
+-->
+
+<style>
+    body #bg {
+        position: absolute;
+        width: 100%;
+        height:100%;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),
+        url('https://s-media-cache-ak0.pinimg.com/originals/3a/b6/b7/3ab6b7324c9d6d7fe3a96cb25e56b94d.jpg');
+    }
+
+</style>
+<div class="container-fluid margin-bottom-5px" style = "width:30%">
+
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
+
+
+    <div class="margin-bottom-18px">
+        <label>Username</label>
+
+        <input  ng-if = "model.isAdmin == false"
+                ng-model="model.user.username"
+                type="text"
+                class="form-control"
+        />
+
+        <input  ng-if = "model.isAdmin == true"
+                ng-model="model.user.username"
+                type="text"
+                class="form-control" disabled
+        />
+
+
+
+    </div>
+    <div class="margin-bottom-18px">
+        <label for="email">Email</label>
+        <input id="email"
+               ng-model="model.user.email"
+               type="email"
+               class="form-control"
+               placeholder="sample@sample.com">
+    </div>
+    <div class="margin-bottom-18px">
+        <label >First Name</label>
+        <input id="firstname"
+               ng-model="model.user.firstName"
+               type="text"
+               class="form-control"
+               placeholder="Donut"/>
+    </div>
+    <div class="margin-bottom-18px">
+        <label >Last Name</label>
+        <input id="lastname"
+               ng-model="model.user.lastName"
+               type="text"
+               class="form-control"
+               placeholder="Dump">
+    </div>
+
+    <div class="margin-bottom-18px">
+        <label >Avatar</label>
+        <input
+                ng-model="model.user.avatar"
+                type="text"
+                class="form-control"
+                placeholder="imageURL">
+    </div>
+
+    <div class="margin-bottom-18px">
+        <label >Steam Profile</label>
+        <input
+                ng-model="model.user.steam"
+                type="text"
+                class="form-control"
+                placeholder="steam Profile URL">
+    </div>
+
+
+    <div class="margin-bottom-5px">
+    <a ng-click="model.updateUser(model.user);">
+        <button class="btn btn-success btn-block">Update</button>
+    </a>
+    </div>
+    <div class="margin-bottom-5px" ng-if = "model.isAdmin == false">
+        <a ng-href="#/user/{{model.user._id}}/">
+            <button class="btn btn-primary btn-block">Trades</button>
+        </a>
+    </div>
+
+    <div class="margin-bottom-5px" ng-if = "model.isAdmin == true">
+        <a ng-href="#/allTrade/">
+            <button class="btn btn-primary btn-block">Manage All Trades</button>
+        </a>
+    </div>
+
+    <div class="margin-bottom-5px" ng-if = "model.isAdmin == true">
+        <a ng-href="#/allUser/">
+            <button class="btn btn-primary btn-block">Manage All Users</button>
+        </a>
+    </div>
+
+
+
+    <a class="margin-bottom-5px" href = "#/" ng-if = "model.isAdmin == true" >
+        <button class="btn btn-danger btn-block">Cancel</button>
+    </a>
+
+
+    <a  class="margin-bottom-5px" href = "#/" ng-if = "model.isAdmin == false" >
+        <button class="btn btn-default btn-block">Cancel</button>
+    </a>
+
+
+
+
+    <div style = "margin-top:45px" ng-if = "model.isAdmin == false">
+            <button ng-click = "model.deleteUser()" class="btn btn-danger btn-block">Delete User</button>
+    </div>
+
+
+
+</div>

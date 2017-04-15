@@ -1,0 +1,56 @@
+
+    <!--Header-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="row container-fluid">
+            <div class="navbar-text pull-left">
+                <a class="content-color-black margin-left"
+                   ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                    <span class="glyphicon glyphicon-chevron-left "></span>
+                </a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">New Page</a>
+            </div>
+        </div>
+    </nav>
+    <div id = "e" class="alert alert-danger" hidden>
+        create failed
+    </div>
+    <!--Content-->
+    <div class="container-fluid">
+        <label>Name</label>
+        <input id="pageName"
+               ng-model = "model.page.name"
+               ng-change = "model.nameError()"
+
+               type="text"
+               class="form-control"
+               placeholder="Page Name"/>
+        <p id = "q" hidden >Name is required</p>
+
+        <label>Title</label>
+        <input id="pageTitle"
+               ng-model = "model.page.description"
+               type="text"
+               class="form-control margin-bottom-18px"
+               placeholder="Page Title"/>
+        <a ng-click = "model.create_page(model.page)"
+           class="btn btn-primary btn-block">
+            Create
+        </a>
+        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page"
+           class="btn btn-danger btn-block margin-bottom-18px">
+            Cancel
+        </a>
+    </div>
+
+    <!--Footer-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="row container-fluid">
+            <a href="#/profile/{{model.userId}}">
+                <div class="navbar-text pull-right margin-right content-color-blue">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+            </a>
+        </div>
+    </nav>

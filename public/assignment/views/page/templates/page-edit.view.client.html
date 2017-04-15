@@ -1,0 +1,53 @@
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-left">
+            <a class="content-color-black margin-left"
+               ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                <span class="glyphicon glyphicon-chevron-left "></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand">Edit Page</a>
+        </div>
+    </div>
+</nav>
+
+<!--Content-->
+<div id = "e" class="alert alert-danger" hidden>
+    update failed
+</div>
+<div class="container-fluid">
+    <label>Name</label>
+    <input id="pageName"
+           ng-change = "model.nameError()"
+           ng-model = "model.page.name"
+           type="text"
+           class="form-control"
+           placeholder="Blog Post"/>
+    <p id = "q" hidden >Name is required</p>
+
+    <label>Title</label>
+    <input id="pageTitle"
+           ng-model = "model.page.description"
+           type="text"
+           class="form-control"
+           placeholder="Page Title"/>
+
+    <a ng-click = "model.update_Page(model.page)"
+       class="btn btn-primary btn-block">Update</a>
+    <a ng-click="model.delete_page()" class="btn btn-danger btn-block">Delete</a>
+
+
+</div>
+
+<!--Footer-->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="row container-fluid">
+        <a href="#/profile/{{model.userId}}">
+            <div class="navbar-text pull-right margin-right content-color-blue">
+                <span class="glyphicon glyphicon-user"></span>
+            </div>
+        </a>
+    </div>
+</nav>

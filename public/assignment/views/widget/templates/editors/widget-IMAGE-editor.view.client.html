@@ -1,0 +1,28 @@
+<h1>IMAGE Editor</h1>
+<label>Name</label>
+<input ng-model="model.widget.name" class="form-control"/>
+
+<label>Text</label>
+<input ng-model="model.widget.text" class="form-control"/>
+
+<label>Width</label>
+<input ng-model="model.widget.width" class="form-control"/>
+
+
+<label>URL</label>
+<input ng-model="model.widget.url" class="form-control"/>
+
+<input name="myFile" type="file" class="form-control"/>
+<input name="width" value="{{model.widget.width}}" style="display: none"/>
+<input name="widgetId" value="{{model.widget._id}}" style="display: none"/>
+
+<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/"
+       ng-click = "model.update_widget(model.widgetId,model.widget,model.pageId)"
+       class="btn btn-block btn-success">Upload Image</a>
+
+<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr"
+  class="btn btn-block btn-primary">Search</a>
+
+<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/"
+   ng-click = "model.delete(model.widgetId)"
+   class="btn btn-danger btn-block">Delete Image</a>

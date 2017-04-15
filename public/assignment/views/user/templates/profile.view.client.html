@@ -1,0 +1,78 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+            <div class="navbar-text pull-right"  >
+                <span class="glyphicon glyphicon-ok" ng-click="model.updateUser(model.user);"></span>
+            </div>
+        <div class="navbar-header">
+            <a class="navbar-brand">Profile</a>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid margin-bottom-5px">
+
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
+
+
+    <div class="margin-bottom-18px">
+        <lable for="first"><strong>Username</strong></lable>
+        <input id="username"
+               ng-model="model.user.username"
+               type="text"
+               class="form-control"
+               placeholder="jannunzi"/>
+    </div>
+    <div class="margin-bottom-18px">
+        <lable for="email"><strong>Email</strong></lable>
+        <input id="email"
+               ng-model="model.user.email"
+               type="email"
+               class="form-control"
+               placeholder="jannunzi@gmail.com">
+    </div>
+    <div class="margin-bottom-18px">
+        <lable for="first"><strong>First Name</strong></lable>
+        <input id="firstname"
+               ng-model="model.user.firstName"
+               type="text"
+               class="form-control"
+               placeholder="Jose"/>
+    </div>
+    <div class="margin-bottom-18px">
+        <lable for="last"><strong>Last Name</strong></lable>
+        <input id="lastname"
+               ng-model="model.user.lastName"
+               type="text"
+               class="form-control"
+               placeholder="Annunziato">
+    </div>
+
+    <div class="margin-bottom-5px">
+        <a ng-href="#/user/{{model.user._id}}/website">
+            <button class="btn btn-primary btn-block">Websites</button>
+        </a>
+    </div>
+
+    <a ng-click = "model.logout()">
+        <button class="btn btn-danger btn-block">Logout</button>
+    </a>
+
+
+    <!--Footer-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="row container-fluid">
+            <a href="#/profile/{{model.userId}}">
+                <div class="navbar-text pull-right margin-right">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+</div>

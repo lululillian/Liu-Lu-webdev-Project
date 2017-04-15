@@ -1,0 +1,295 @@
+<style>
+    body,html{
+        height: 100%;
+    }
+
+    nav.sidebar, .main{
+        -webkit-transition: margin 200ms ease-out;
+        -moz-transition: margin 200ms ease-out;
+        -o-transition: margin 200ms ease-out;
+        transition: margin 200ms ease-out;
+    }
+
+    .main{
+        padding: 10px 10px 0 10px;
+    }
+
+    @media (min-width: 765px) {
+
+        .main{
+            position: absolute;
+            width: calc(100% - 40px);
+            margin-left: 40px;
+            float: right;
+        }
+
+        nav.sidebar:hover + .main{
+            margin-left: 200px;
+        }
+
+        nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+            margin-left: 0px;
+        }
+
+        nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+            text-align: center;
+            width: 100%;
+            margin-left: 0px;
+        }
+
+        nav.sidebar a{
+            padding-right: 13px;
+        }
+
+        nav.sidebar .navbar-nav > li:first-child{
+            border-top: 1px #e5e5e5 solid;
+        }
+
+        nav.sidebar .navbar-nav > li{
+            border-bottom: 1px #e5e5e5 solid;
+        }
+
+        nav.sidebar .navbar-nav .open .dropdown-menu {
+            position: static;
+            float: none;
+            width: auto;
+            margin-top: 0;
+            background-color: transparent;
+            border: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+            padding: 0 0px 0 0px;
+        }
+
+        .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+            color: #777;
+        }
+
+        nav.sidebar{
+            width: 200px;
+            height: 100%;
+            margin-left: -160px;
+            float: left;
+            margin-bottom: 0px;
+        }
+
+        nav.sidebar li {
+            width: 100%;
+        }
+
+        nav.sidebar:hover{
+            margin-left: 0px;
+        }
+
+        .forAnimate{
+            opacity: 0;
+        }
+    }
+
+    @media (min-width: 1330px) {
+
+        .main{
+            width: calc(100% - 200px);
+            margin-left: 200px;
+        }
+
+        nav.sidebar{
+            margin-left: 0px;
+            float: left;
+        }
+
+        nav.sidebar .forAnimate{
+            opacity: 1;
+        }
+    }
+
+    nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+        color: #CCC;
+        background-color: transparent;
+    }
+
+    label{
+        color: #777;
+    }
+    nav:hover .forAnimate{
+        opacity: 1;
+    }
+    section{
+        padding-left: 15px;
+    }
+
+
+
+
+    #bg-container {
+        positon: relative;
+    }
+
+    body #bg {
+        position: absolute;
+        width: 100%;
+        background-image:
+        url('https://d13yacurqjgara.cloudfront.net/users/51330/screenshots/348645/pattern.png');
+
+
+    }
+
+
+    .game-cover  {
+        width:460px;
+        position:relative;
+        text-align: center;
+
+    }
+
+    .game-cover:hover img{
+        opacity: 0.3;
+        transition: .5s ease;
+    }
+    .game-cover:hover span{
+        opacity: 1;
+        transition: .5s ease;
+    }
+
+    .border
+    {
+        border:10px solid #C0C0C0
+    }
+
+    .game-cover   span
+    {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
+    }
+    h5{
+        font-style: italic; color: #B6B6B6; font-size: 24px; margin-top: 20px; text-align: center; text-shadow: 0 1px 1px #fff;    }
+</style>
+
+<!--
+<ul id="nav-mobile" class="side-nav fixed">
+
+        <div class="search-wrapper card">
+            <input id="search"><i class="material-icons">search</i>
+            <div class="search-results"></div>
+        </div>
+    </li>
+    <li class="bold"><a href="about.html" class="waves-effect waves-teal">About</a></li>
+    <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Getting Started</a></li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">CSS</a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="color.html">Color</a></li>
+                        <li><a href="grid.html">Grid</a></li>
+                        <li><a href="helpers.html">Helpers</a></li>
+                        <li><a href="media-css.html">Media</a></li>
+                        <li><a href="pulse.html">Pulse</a></li>
+                        <li><a href="sass.html">Sass</a></li>
+                        <li><a href="shadow.html">Shadow</a></li>
+                        <li><a href="table.html">Table</a></li>
+                        <li><a href="css-transitions.html">Transitions</a></li>
+                        <li><a href="typography.html">Typography</a></li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+    </li>
+    <li class="bold"><a href="http://materializecss.com/mobile.html" class="waves-effect waves-teal">Mobile</a></li>
+    <li class="bold"><a href="showcase.html" class="waves-effect waves-teal">Showcase</a></li>
+    <li class="bold"><a href="themes.html" class="waves-effect waves-teal">Themes</a></li>
+</ul>
+
+-->
+
+<nav  class="navbar navbar-default sidebar" role="navigation" style = " margin-left:30px;width:15%">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li >
+                    <div style = " margin-left:20px;" class="input-group">
+                        <div class = " col-xs-12">
+
+                            <input id = "tags" ng-model = "model.query" class = "form-control" >
+                            <span  style = " background: white !important; " class=" input-group-addon  ">
+                            <button style = " border:0;   background:transparent;" ng-click = "model.search()"  >
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+
+
+                            <span  style = " background: white !important; " class=" input-group-addon ">
+                            <button style = " border:0;   background:transparent;"ng-click = "model.clearQuery()" >
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        </span>
+                        </div>
+                    </div>
+                </li>
+
+
+                <l1>
+
+
+                    <div id="type" class="collapse">
+                        <div ng-repeat = " (key,value) in model.games">
+                            <label>{{key}}:
+                                <input type="checkbox" ng-model="model.typeFilter[key]">
+                                {{model.typeFilter[key]}}
+                            </label>
+                        </div>
+                        <button class = "btn btn-info" ng-click = "model.all()">Select All</button>
+                        <button class = "btn btn-info" ng-click = "model.none()">Select None</button>
+
+                    </div>
+
+                </l1>
+                <li class="dropdown">
+                    <a  class="dropdown-toggle" data-toggle="dropdown">Genre Filter
+                        <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <div ng-repeat = " (key,value) in model.games">
+                            <div class="checkbox">
+                                <input type="checkbox" ng-model="model.typeFilter[key]"><label> {{key}}</label>
+                            </div>
+
+                        </div>
+                        <button class = "btn btn-info" ng-click = "model.all()">Select All</button>
+                        <button class = "btn btn-info" ng-click = "model.none()">Select None</button>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="col-md-8">
+    <div class="col-md-6" ng-repeat="(key,value) in model.infos">
+        <div class = "game-cover container " style = "margin-top:30px" ng-if = "model.typeFilter[value.type] && value.enable">
+            <img class = "border" ng-click = "model.trade(value)" src = {{value.image_url}}  ng-click = ""/>
+            <span style = "font-size: 50px;" class="glyphicon glyphicon-search"></span>
+            <h5 >{{value.name}}</h5>
+        </div>
+    </div>
+</div>
+

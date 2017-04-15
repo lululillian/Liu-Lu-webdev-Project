@@ -1,0 +1,112 @@
+<div class = "container" style = "width:30% ; height :50%" >
+    <div class="col-md-6"  >
+        <img src = {{model.user.avatar}} width="150" height = "150" >
+    </div>
+
+    <div class="col-md-6" style = "margin-top:30px"  >
+            <a class="col-md-12"  ng-href = "#/comment/{{model.user._id}}"><button class = "btn ">Profile of {{model.user.username}}</button></a>
+
+        <button  style = "margin-top:30px"  class = "btn btn-primary col-md-12" ng-click = "model.send()" style = "margin-top:30px" >I wanna swap!</button>
+    </div>
+
+</div>
+
+<div class = "container" style="width:70%">
+
+<div class="panel panel-success" >
+    <div class="panel-heading" >  <div class="red-text text-center"> {{model.user.username}} has the following game</div>  </div>
+    <div class="panel-body" >
+
+    <div class = "container" style="width:90%" >
+        <div class="col-md-9"  >
+            <video  src = {{model.getTrustedURL(model.have.video)}}  width="500" height = "300" controls >
+                <source type = "video/webm" >
+            </video>
+        </div>
+
+        <div class="col-md-3"   >
+            <a href = {{model.have.url}}>
+                <button class = "btn btn-default">
+                    {{model.have.name}}
+                </button>
+            </a>
+            <h4>
+                publisher: {{model.have.pub}}
+            </h4>
+            <h4>
+                developer: {{model.have.dev}}
+            </h4>
+            <h5>
+                {{model.have.short_description}}
+            </h5>
+
+
+        </div>
+
+    </div>
+    </div>
+</div>
+</div>
+
+<div class = "container" style="width:70%">
+<div class="panel panel-primary ">
+    <div class="panel-heading" >  <div class="red-text text-center"> {{model.user.username}} wants the following game</div>  </div>
+    <div class="panel-body">
+        <div class = "container" style="width:90%" >
+
+            <div class="col-md-9"  >
+                <video  src = {{model.getTrustedURL(model.want.video)}}  width="500" height = "300" controls >
+                    <source type = "video/webm" >
+                </video>
+            </div>
+
+            <div class="col-md-3" >
+                <a href = {{model.want.url}}>
+                    <button class = "btn btn-default">
+                        {{model.want.name}}
+                    </button>
+                </a>
+                <h4>
+                    Publisher: {{model.want.pub}}
+                </h4>
+                <h4>
+                    Developer: {{model.want.dev}}
+                </h4>
+                <h5>
+                    {{model.want.short_description}}
+                </h5>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</div>
+</div>
+
+<style>
+    #bg-container {
+        positon: relative;
+    }
+
+    body #bg {
+        position: absolute;
+        width: 100%;
+        background-image:
+                url('https://d13yacurqjgara.cloudfront.net/users/51330/screenshots/348645/pattern.png');
+
+
+    }
+    h1{color: #000000; }
+    h2{color: #000000; }
+    h3{color: #000000; }
+    h4{color: #000000; }
+    h5{color: #000000; }
+    h6{color: #000000; }
+
+</style>

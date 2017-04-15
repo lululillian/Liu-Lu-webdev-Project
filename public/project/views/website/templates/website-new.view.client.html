@@ -1,0 +1,97 @@
+
+<!--Header-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="row container-fluid">
+            <!--Left Arrow-->
+            <div class="col-sm-1">
+                <div class="navbar-text pull-left">
+                    <a class="content-color-white" href="#/user/{{model.userId}}/website/">
+                        <span class="glyphicon glyphicon-chevron-left "></span>
+                    </a>
+                </div>
+            </div>
+            <!--Left Header-->
+            <div class="col-sm-3 hidden-xs">
+                <div class="navbar-header">
+                    <a class="navbar-brand">
+                        Websites
+                    </a>
+                </div>
+                <div class="navbar-text pull-right ">
+                    <a class="content-color-white" href="#/user/{{model.userId}}/website/new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+            </div>
+            <!--Right Header-->
+            <div class="col-sm-8">
+                <div class="navbar-text pull-right">
+                    <a class="content-color-white" ng-click = "model.createWeb(model.website);">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                </div>
+                <div>
+                    <a class="navbar-brand margin-left">
+                        New Website
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <div class="container-fluid">
+        <!--Left Content-->
+        <div class="col-sm-4 hidden-xs">
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">
+                        {{website.name}}
+                    </div>
+                    <div class="col-xs-2">
+                        <a class="glyphicon glyphicon-cog pull-right"  href = "#/user/{{model.userId}}/website/{{website._id}}"></a>
+                    </div>
+                </div>
+            </li>
+        </div>
+        <div id = "e" class="alert alert-danger" hidden>
+            Create failed
+        </div>
+        <!--Right Content-->
+        <div class="col-sm-8">
+            <label>Name</label>
+            <div class="margin-bottom-18px">
+                <input id="name"
+                       ng-change = "model.nameError()"
+                       ng-model ="model.website.name"
+                       type="text"
+                       class="form-control"
+                       placeholder="Name"/>
+            </div>
+            <p id = "q" hidden >Name is required</p>
+
+            <label>Description</label>
+            <textarea id="description"
+                      ng-model = "model.website.description"
+                      type="text"
+                      class="form-control margin-bottom-18px"
+                      placeholder="Here is your description"></textarea>
+            <a ng-click = "model.createWeb(model.website);"
+               class="btn btn-primary btn-block ">
+                Create
+            </a>
+        </div>
+    </div>
+
+
+    <!--Footer-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="row container-fluid">
+            <a href="#/profile/{{model.userId}}">
+                <div class="navbar-text pull-right margin-right">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+            </a>
+        </div>
+    </nav>

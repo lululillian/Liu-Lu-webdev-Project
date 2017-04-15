@@ -1,0 +1,115 @@
+
+<!--Header-->
+<style>
+    .ta-editor {
+        min-height: 300px;
+        height: auto;
+        overflow: auto;
+        font-family: inherit;
+        font-size: 100%;
+        margin: 20px 0;
+    }
+
+
+    .youtube-widget {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+    }
+    .youtube-widget iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-left">
+            <a class="content-color-black margin-left"
+               ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+            <div class="navbar-text pull-right margin-right">
+                <span class="glyphicon glyphicon-plus"></span>
+            </div>
+        </a>
+        <div class="navbar-header">
+            <a class="navbar-brand">Widgets</a>
+        </div>
+    </div>
+</nav>
+
+<!--Content-->
+<div class="container-fluid ui-sortable" id="widget-list">
+    <div ng-repeat = "widget in model.widgets">
+        <div ng-if = "widget._page != undefined">
+        <div class = "jga-toolbar" height = 10px>
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
+            </a>
+        </div>
+
+        <div ng-switch = "widget.type">
+
+            <!--<ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>-->
+            <div ng-switch-when="HEADING">
+                <div style="width: 90%">
+                    <ng-include src="model.getWidgetTemplateUrl('HEADING');"></ng-include>
+                </div>
+            </div>
+
+
+            <div ng-switch-when="IMAGE">
+                <ng-include src="model.getWidgetTemplateUrl('IMAGE');"></ng-include>
+            </div>
+
+            <div ng-switch-when="YOUTUBE" class="youtube-widget">
+                <div style="width: 90%;" class="height:800px">
+                    <ng-include src="model.getWidgetTemplateUrl('YOUTUBE');"></ng-include>
+                </div>
+            </div>
+
+            <div ng-switch-when="HTML">
+                <div style="width: 90%">
+                    <ng-include class="margin-left" src="model.getWidgetTemplateUrl('HTML');"></ng-include>
+                </div>
+            </div>
+
+            <div ng-switch-when="TEXT">
+                <div ng-if="widget.formatted" text-angular ta-toolbar="..."></div>
+                <input ng-if="!widget.formatted && (!widget.rows || widget.rows===1)"
+                       placeholder="{{widget.textInput.placeholder}}" class="form-control"/>
+                <textarea ng-if="!widget.formatted && (widget.rows > 1)"
+                          rows="{{widget.rows}}" placeholder="{{widget.placeholder}}"
+                          class="form-control">{{widget.text}}</textarea>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<!--Footer-->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-left margin-left content-color-black">
+            <span class="glyphicon glyphicon-play"></span>
+        </div>
+        <div class="navbar-text pull-left margin-left content-color-blue">
+            <span class="glyphicon glyphicon-eye-open"></span>
+        </div>
+        <a  href="#/profile/{{model.userId}}">
+            <div class="navbar-text pull-right margin-right content-color-blue">
+                <span class="glyphicon glyphicon-user"></span>
+            </div>
+        </a>
+
+    </div>
+</nav>

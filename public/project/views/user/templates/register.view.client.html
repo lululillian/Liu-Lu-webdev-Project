@@ -1,0 +1,53 @@
+<div class="container-fluid" style = "width:30%">
+    <h1>Register</h1>
+    <div id = "e" class="alert alert-danger" hidden>
+        register failed
+    </div>
+    <input id="username"
+           ng-change = "model.usernameError()"
+
+           ng-model="model.user.username"
+           type="text"
+           class="form-control"
+           placeholder="username"/>
+    <p id = "q" hidden >username is required</p>
+
+    <input id="password1"
+           ng-change = "model.passwordError()"
+
+           ng-model="model.user.password"
+           class="form-control"
+           type="password"
+           placeholder="password">
+    <p id = "p" hidden >password is required</p>
+
+    <input id="password2"
+           ng-model="model.confirm"
+           ng-change = "model.passwordVerifyError()"
+           class="form-control"
+           type="password"
+           placeholder="verify password">
+    <p id = "v" hidden >verified password is required</p>
+    <p id = "f" hidden >verified password does not match</p>
+
+    <div class="margin-bottom-5px">
+        <a >
+            <button class="btn btn-primary btn-block"
+                    ng-click = "model.createUser(model.user)">Register</button>
+        </a>
+    </div>
+
+    <a href="#/">
+        <button class="btn btn-danger btn-block">Cancel</button>
+    </a>
+</div>
+<style>
+    body #bg {
+        position: absolute;
+        width: 100%;
+        height:100%;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),
+        url('https://s-media-cache-ak0.pinimg.com/originals/3a/b6/b7/3ab6b7324c9d6d7fe3a96cb25e56b94d.jpg');
+    }
+
+</style>

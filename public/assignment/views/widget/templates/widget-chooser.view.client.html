@@ -1,0 +1,35 @@
+
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="navbar-text pull-left">
+            <a class="content-color-black margin-left"
+               ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                <span class="glyphicon glyphicon-chevron-left "></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand">Choose Widget</a>
+        </div>
+    </div>
+</nav>
+
+<!--Content-->
+<div class="container-fluid">
+    <ul class="list-group">
+        <a class="list-group-item" ng-repeat="type in model.types"
+           ng-click="model.createWidget(type);">{{type}}
+        </a>
+    </ul>
+</div>
+
+<!--Footer-->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="row container-fluid">
+        <a href="#/profile/{{model.userId}}">
+            <div class="navbar-text pull-right margin-right content-color-blue">
+                <span class="glyphicon glyphicon-user"></span>
+            </div>
+        </a>
+    </div>
+</nav>

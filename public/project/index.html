@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WebAppMaker">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3
+    .7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <link href="css/styles-page.css" rel="stylesheet"/>
+    <link href="../css/textAngular.css" rel="stylesheet"/>
+    <!--angularjs-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://steamdb.steamcn.com/steam_info.js"></script>
+
+    <script src="    https://raw.githubusercontent.com/IanLunn/Hover/master/css/hover-min.css"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+
+    <!--
+    icon css code is partial copyed
+    http://store.steampowered.com/api/appdetails?appids=393380
+    http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/?format=json
+    https://steamcdn-a.akamaihd.net/steam/apps/214770/header.jpg
+    <script src="angular.min.js"></script>
+    <script src="angular-route.js"></script>
+    -->
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="../js/textAngular.js"></script>
+    <script src="../js/textAngular-rangy.min.js"></script>
+    <script src="../js/textAngular-sanitize.js"></script>
+    <!--jquery-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+
+    <script src="../js/vendor/jquery-3.1.1.min.js"></script>
+    <script src="../js/vendor/jquery-ui.min.js"></script>
+    <!-- directives -->
+    <script src="directives/sortable.directive.client.js"></script>
+    <!-- controllers -->
+        <!--page-->
+   <script src="views/page/controllers/page-edit.controller.client.js"></script>
+   <script src="views/page/controllers/page-list.controller.client.js"></script>
+    <script src="views/page/controllers/page-new.controller.client.js"></script>
+
+       <!--user-->
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.client.js"></script>
+        <!--website-->
+    <script src="views/website/controllers/website-list.controller.client.js"></script>
+    <script src="views/website/controllers/website-new.controller.client.js"></script>
+    <script src="views/website/controllers/website-edit.controller.client.js"></script>
+        <!--widget-->
+    <script src="views/widget/controllers/widget-list.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-new.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-flickr-search.controller.client.js"></script>
+
+    <script src="views/filter/controllers/filter.controller.client.js"></script>
+    <script src="views/game/controllers/game-cover.controller.client.js"></script>
+    <script src="views/game/controllers/game-detail.controller.client.js"></script>
+    <script src="views/trade/controllers/trade.controller.client.js"></script>
+    <script src="views/user/controllers/comment.controller.client.js"></script>
+    <script src="views/user/controllers/user.controller.admin.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- services -->
+    <script src="services/user.service.client.js"></script>
+    <script src="services/website.service.client.js"></script>
+    <script src="services/widget.service.client.js"></script>
+    <script src="services/page.service.client.js"></script>
+    <script src="services/flickr.service.client.js"></script>
+    <script src="services/trade.service.client.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    #bg-container {
+        positon: relative;
+    }
+
+    label{color: #FDFEFE; }
+    h1{color: #FDFEFE; }
+    h2{color: #FDFEFE; }
+    h3{color: #FDFEFE; }
+    h4{color: #FDFEFE; }
+    h5{color: #FDFEFE; }
+    h6{color: #FDFEFE; }
+    strong{color: #FDFEFE; }
+    pre {
+        white-space: pre-wrap;       /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+</style>
+<body style="padding: 0">
+<style>
+    .nav{
+        margin-right: 50px;
+        margin-top: 50px;
+        float:right
+    }
+
+</style>
+<script>
+    angular
+        .module("WebAppMaker")
+        .controller('mainController', function($scope,$http,UserService,$location,$rootScope,$window) {
+
+            $scope.home = function () {
+                $location.url("/");
+            };
+            $scope.logout = function () {
+                UserService
+                    .logout()
+                    .then(
+                        function(response) {
+                            $rootScope.currentUser = null;
+                            $location.url("#/");
+                            $window.location.reload();
+
+                        })
+            };
+
+
+
+            $scope.profile = function () {
+                $location.url("/profile/"+  $scope.userId);
+            };
+            $scope.$on('$routeChangeStart', function(next, current) {
+                logInDetect();
+                console.log(current.$$route.templateUrl);
+
+                if ( current.$$route.templateUrl == "views/game/templates/game-cover.view.client.html" ){
+                    $scope.homepage = true;
+
+                } else {
+
+                    $scope.homepage = false;
+                }
+            });
+            $scope.goback = function(){
+                history.back();
+            };
+
+            var logInDetect = function(){$http.get('/game/loggedin').success(function(user) {
+                    if (user !== '0') {
+                        $scope.login = true;
+
+                        $scope.userId = user._id;
+                        if(user.username == "admin"){
+                            $scope.isAdmin = true;
+                        }
+                        else{
+                            $scope.isAdmin = false;
+                        }
+
+
+                    } else {
+                        $scope.login = false;
+
+                    }
+                })};
+            });
+
+    </script>
+
+
+
+
+
+
+<div id = "bg-container" ng-controller="mainController">
+    <div id = "bg">
+
+        <img ng-click ="home()" id = "logo" src = "logo.png" height="100" width="150" style = "margin:50px" >
+        <a ng-if = "homepage == false" id = "goback" ng-click = "goback()"><label>
+            <- Go back to previous page
+        </label> </a>
+        <nav class="nav ">
+            <div ng-if = "!login">
+                <a  href="#/login"><button class="btn">Log in</button></a>
+                <a  href="#/register"><button class="btn btn-primary">Sign up</button></a>
+            </div>
+            <div ng-if = "login">
+                <button class = "btn btn-info" ng-if = "isAdmin == false" ng-click = "profile()">Profile</button>
+                <button class = "btn btn-info"   ng-if = "isAdmin == true" ng-click = "profile()">Admin Console</button>
+                <button class = "btn btn-danger" ng-click = "logout()">Log out</button>
+                <a href = "#/trade"> <button class = "btn btn-primary" >New Swap</button></a>
+
+            </div>
+
+        </nav>
+        <div ng-view></div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

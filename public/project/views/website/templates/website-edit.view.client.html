@@ -1,0 +1,37 @@
+<div class = "container" style = "width:30%">
+    <label>
+        Please input only the appId of the steam game,which you can find in the url of the steam game
+    </label>
+    <label>
+        I have
+    </label>
+    <input  class="form-control" type="text" ng-model = "model.trade.have">
+    <label>
+        I want
+    </label>
+    <input  class="form-control" type="text" ng-model = "model.trade.want">
+    <a ng-click="model.update()"  class="button" style = "margin:20px" >
+        <button class="btn btn-success btn-block">Update</button>
+    </a>
+
+    <a ng-click="model.deleteTrade()"  class="button" style = "margin:20px" >
+        <button class="btn btn-danger btn-block">Delete</button>
+    </a>
+
+    <a ng-href = "#/user/{{model.userId}}/"  class="button" style = "margin:20px" >
+        <button class="btn btn-default btn-block">Cancel</button>
+    </a>
+
+
+
+</div>
+<style>
+    body #bg {
+        position: absolute;
+        width: 100%;
+        height:100%;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%),
+        url('https://s-media-cache-ak0.pinimg.com/originals/3a/b6/b7/3ab6b7324c9d6d7fe3a96cb25e56b94d.jpg');
+    }
+
+</style>

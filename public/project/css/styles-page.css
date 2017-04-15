@@ -1,0 +1,70 @@
+input{
+    margin-bottom:5px;
+    width:100%;
+    height:100%;
+    text-align: left;
+}
+
+.margin-bottom-5px{
+    margin-bottom:5px;
+}
+.topic-distance{
+    margin-bottom:10px
+}
+.margin-right{
+    margin-right: 15px;
+}
+.margin-left{
+    margin-left:15px;
+}
+.margin-right-components{
+    margin-right:5px;
+}
+.margin-right-paragraph{
+    margin-right: 20px;
+}
+
+body{
+    padding-top:60px;
+    padding-bottom:60px;
+}
+
+.navbar-default{
+    background-color: whitesmoke;
+}
+.navbar-default .navbar-brand{
+    color:black;
+}
+.navbar-default .navbar-text{
+    color:darkslategrey;
+}
+
+.no-left-padding{
+    padding-left:0px;
+}
+.no-left-margin{
+    margin-left:0px;
+}
+
+.content-color-blue{
+    color:#006dcc;
+}
+.content-color-white{
+    color:white;
+}
+.content-color-black{
+    color:black;
+}
+
+.mainTopic-fontsize{
+    font-size: 40px;
+}
+.secondTopic-fontsize{
+    font-size: 20px;
+}
+.paragraph-fontsize{
+    font-size:13px;
+}
+#Paragraph{
+    width: 90%;
+}
